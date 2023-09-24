@@ -1,0 +1,350 @@
+Sep 17 20:03:36 www dovecot: master: Dovecot v2.3.20 (80a5ac675d) starting up for imap, lmtp (core dumps disabled)
+Sep 17 20:03:37 www opendkim[497]: OpenDKIM Filter v2.11.0 starting (args: -f)
+Sep 17 20:03:37 www opendmarc[506]: OpenDMARC Filter v1.4.0 starting (args: -f -p inet:8893@localhost -P /var/run/opendmarc/opendmarc.pid)
+Sep 17 20:03:37 www opendmarc[506]: additional trusted authentication services: www.baladiya.com
+Sep 17 20:03:37 www postfix/postfix-script[597]: warning: group or other writable: /var/spool/postfix/.
+Sep 17 20:03:37 www postfix/postfix-script[598]: warning: group or other writable: /var/spool/postfix/pid
+Sep 17 20:03:37 www postfix/postfix-script[614]: warning: not owned by postfix: /var/lib/postfix/.
+Sep 17 20:03:37 www postfix/postfix-script[617]: warning: group or other writable: /var/lib/postfix/.
+Sep 17 20:03:37 www postfix/postfix-script[623]: warning: not owned by postfix: /var/spool/postfix/active
+Sep 17 20:03:37 www postfix/postfix-script[624]: warning: not owned by postfix: /var/spool/postfix/bounce
+Sep 17 20:03:37 www postfix/postfix-script[625]: warning: not owned by postfix: /var/spool/postfix/corrupt
+Sep 17 20:03:37 www postfix/postfix-script[627]: warning: not owned by postfix: /var/spool/postfix/defer
+Sep 17 20:03:37 www postfix/postfix-script[629]: warning: not owned by postfix: /var/spool/postfix/deferred
+Sep 17 20:03:38 www postfix/postfix-script[631]: warning: not owned by postfix: /var/spool/postfix/flush
+Sep 17 20:03:38 www postfix/postfix-script[632]: warning: not owned by postfix: /var/spool/postfix/hold
+Sep 17 20:03:38 www postfix/postfix-script[636]: warning: not owned by postfix: /var/spool/postfix/incoming
+Sep 17 20:03:38 www postfix/postfix-script[638]: warning: not owned by postfix: /var/spool/postfix/private
+Sep 17 20:03:38 www postfix/postfix-script[640]: warning: not owned by postfix: /var/spool/postfix/public
+Sep 17 20:03:38 www postfix/postfix-script[642]: warning: not owned by postfix: /var/spool/postfix/saved
+Sep 17 20:03:38 www postfix/postfix-script[645]: warning: not owned by postfix: /var/spool/postfix/trace
+Sep 17 20:03:38 www postfix/postfix-script[651]: warning: not owned by postfix: /var/spool/postfix/maildrop
+Sep 17 20:03:38 www postfix/postfix-script[653]: warning: not owned by group postdrop: /var/spool/postfix/public
+Sep 17 20:03:38 www postfix/postfix-script[654]: warning: not owned by group postdrop: /var/spool/postfix/maildrop
+Sep 17 20:03:38 www postfix/postfix-script[658]: starting the Postfix mail system
+Sep 17 20:03:38 www postfix/master[659]: daemon started -- version 3.5.18, configuration /etc/postfix
+Sep 17 20:03:38 www amavis[628]: starting. /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 17 20:03:38 www amavis[628]: perl=5.032001, user=, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 17 20:03:38 www amavis[628]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 17 20:03:38 www amavis[628]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 17 20:03:38 www amavis[628]: No ext program for   .zoo, tried: zoo
+Sep 17 20:03:38 www amavis[628]: No ext program for   .doc, tried: ripole
+Sep 17 20:03:38 www amavis[628]: No decoder for       .F   
+Sep 17 20:03:38 www amavis[628]: No decoder for       .doc 
+Sep 17 20:03:38 www amavis[628]: No decoder for       .zoo 
+Sep 17 21:38:09 www dovecot: master: Dovecot v2.3.20 (80a5ac675d) starting up for imap, lmtp (core dumps disabled)
+Sep 17 21:38:09 www opendkim[447]: OpenDKIM Filter v2.11.0 starting (args: -f)
+Sep 17 21:38:09 www opendmarc[453]: OpenDMARC Filter v1.4.0 starting (args: -f -p inet:8893@localhost -P /var/run/opendmarc/opendmarc.pid)
+Sep 17 21:38:09 www opendmarc[453]: additional trusted authentication services: www.baladiya.com
+Sep 17 21:38:09 www postfix/postfix-script[530]: warning: group or other writable: /var/spool/postfix/.
+Sep 17 21:38:09 www postfix/postfix-script[531]: warning: group or other writable: /var/spool/postfix/pid
+Sep 17 21:38:09 www postfix/postfix-script[545]: warning: not owned by postfix: /var/lib/postfix/.
+Sep 17 21:38:09 www postfix/postfix-script[549]: warning: not owned by postfix: /var/lib/postfix/./master.lock
+Sep 17 21:38:09 www postfix/postfix-script[551]: warning: group or other writable: /var/lib/postfix/.
+Sep 17 21:38:10 www postfix/postfix-script[555]: warning: group or other writable: /var/lib/postfix/./master.lock
+Sep 17 21:38:10 www postfix/postfix-script[560]: warning: not owned by postfix: /var/spool/postfix/active
+Sep 17 21:38:10 www postfix/postfix-script[562]: warning: not owned by postfix: /var/spool/postfix/bounce
+Sep 17 21:38:10 www postfix/postfix-script[563]: warning: not owned by postfix: /var/spool/postfix/corrupt
+Sep 17 21:38:10 www postfix/postfix-script[565]: warning: not owned by postfix: /var/spool/postfix/defer
+Sep 17 21:38:10 www postfix/postfix-script[566]: warning: not owned by postfix: /var/spool/postfix/deferred
+Sep 17 21:38:10 www postfix/postfix-script[567]: warning: not owned by postfix: /var/spool/postfix/flush
+Sep 17 21:38:10 www postfix/postfix-script[568]: warning: not owned by postfix: /var/spool/postfix/hold
+Sep 17 21:38:10 www postfix/postfix-script[570]: warning: not owned by postfix: /var/spool/postfix/incoming
+Sep 17 21:38:10 www postfix/postfix-script[571]: warning: not owned by postfix: /var/spool/postfix/private
+Sep 17 21:38:10 www postfix/postfix-script[572]: warning: not owned by postfix: /var/spool/postfix/public
+Sep 17 21:38:10 www postfix/postfix-script[574]: warning: not owned by postfix: /var/spool/postfix/saved
+Sep 17 21:38:10 www postfix/postfix-script[575]: warning: not owned by postfix: /var/spool/postfix/trace
+Sep 17 21:38:10 www postfix/postfix-script[578]: warning: not owned by postfix: /var/spool/postfix/maildrop
+Sep 17 21:38:10 www postfix/postfix-script[582]: warning: not owned by group postdrop: /var/spool/postfix/public
+Sep 17 21:38:10 www postfix/postfix-script[584]: warning: not owned by group postdrop: /var/spool/postfix/maildrop
+Sep 17 21:38:10 www postfix/postfix-script[593]: starting the Postfix mail system
+Sep 17 21:38:10 www postfix/master[595]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 17 21:38:10 www postfix/master[595]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 17 21:38:10 www postfix/master[595]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 17 21:38:10 www postfix/master[595]: daemon started -- version 3.5.18, configuration /etc/postfix
+Sep 17 21:38:10 www amavis[548]: starting. /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 17 21:38:10 www amavis[548]: perl=5.032001, user=, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 17 21:38:10 www amavis[548]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 17 21:38:10 www amavis[548]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 17 21:38:10 www amavis[548]: No ext program for   .zoo, tried: zoo
+Sep 17 21:38:10 www amavis[548]: No ext program for   .doc, tried: ripole
+Sep 17 21:38:10 www amavis[548]: No decoder for       .F   
+Sep 17 21:38:10 www amavis[548]: No decoder for       .doc 
+Sep 17 21:38:10 www amavis[548]: No decoder for       .zoo 
+Sep 17 22:08:57 www amavis[548]: (!)Net::Server: 2023/09/17-22:08:57 Re-exec server during HUP
+Sep 17 22:08:57 www postfix/postfix-script[3461]: refreshing the Postfix mail system
+Sep 17 22:08:57 www postfix/master[595]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 17 22:08:57 www postfix/master[595]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 17 22:08:57 www postfix/master[595]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 17 22:08:57 www postfix/master[595]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 17 22:08:57 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 17 22:08:57 www amavis[548]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 17 22:08:57 www amavis[548]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 17 22:08:57 www amavis[548]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 17 22:08:57 www amavis[548]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 17 22:08:57 www amavis[548]: No ext program for   .zoo, tried: zoo
+Sep 17 22:08:57 www amavis[548]: No ext program for   .doc, tried: ripole
+Sep 17 22:08:57 www amavis[548]: No decoder for       .F   
+Sep 17 22:08:57 www amavis[548]: No decoder for       .doc 
+Sep 17 22:08:57 www amavis[548]: No decoder for       .zoo 
+Sep 18 15:15:20 www dovecot: master: Dovecot v2.3.20 (80a5ac675d) starting up for imap, lmtp (core dumps disabled)
+Sep 18 15:15:20 www opendkim[456]: OpenDKIM Filter v2.11.0 starting (args: -f)
+Sep 18 15:15:20 www opendmarc[462]: OpenDMARC Filter v1.4.0 starting (args: -f -p inet:8893@localhost -P /var/run/opendmarc/opendmarc.pid)
+Sep 18 15:15:20 www opendmarc[462]: additional trusted authentication services: www.baladiya.com
+Sep 18 15:15:21 www postfix/postfix-script[539]: warning: group or other writable: /var/spool/postfix/.
+Sep 18 15:15:21 www postfix/postfix-script[540]: warning: group or other writable: /var/spool/postfix/pid
+Sep 18 15:15:21 www postfix/postfix-script[554]: warning: not owned by postfix: /var/lib/postfix/.
+Sep 18 15:15:21 www postfix/postfix-script[555]: warning: not owned by postfix: /var/lib/postfix/./master.lock
+Sep 18 15:15:21 www postfix/postfix-script[560]: warning: group or other writable: /var/lib/postfix/.
+Sep 18 15:15:21 www postfix/postfix-script[561]: warning: group or other writable: /var/lib/postfix/./master.lock
+Sep 18 15:15:21 www postfix/postfix-script[569]: warning: not owned by postfix: /var/spool/postfix/active
+Sep 18 15:15:21 www postfix/postfix-script[570]: warning: not owned by postfix: /var/spool/postfix/bounce
+Sep 18 15:15:21 www postfix/postfix-script[571]: warning: not owned by postfix: /var/spool/postfix/corrupt
+Sep 18 15:15:21 www postfix/postfix-script[573]: warning: not owned by postfix: /var/spool/postfix/defer
+Sep 18 15:15:21 www postfix/postfix-script[574]: warning: not owned by postfix: /var/spool/postfix/deferred
+Sep 18 15:15:21 www postfix/postfix-script[576]: warning: not owned by postfix: /var/spool/postfix/flush
+Sep 18 15:15:21 www postfix/postfix-script[604]: warning: not owned by postfix: /var/spool/postfix/hold
+Sep 18 15:15:21 www postfix/postfix-script[611]: warning: not owned by postfix: /var/spool/postfix/incoming
+Sep 18 15:15:21 www postfix/postfix-script[616]: warning: not owned by postfix: /var/spool/postfix/private
+Sep 18 15:15:21 www postfix/postfix-script[620]: warning: not owned by postfix: /var/spool/postfix/public
+Sep 18 15:15:21 www postfix/postfix-script[622]: warning: not owned by postfix: /var/spool/postfix/saved
+Sep 18 15:15:21 www postfix/postfix-script[624]: warning: not owned by postfix: /var/spool/postfix/trace
+Sep 18 15:15:21 www postfix/postfix-script[628]: warning: not owned by postfix: /var/spool/postfix/maildrop
+Sep 18 15:15:21 www postfix/postfix-script[636]: warning: not owned by group postdrop: /var/spool/postfix/public
+Sep 18 15:15:21 www postfix/postfix-script[637]: warning: not owned by group postdrop: /var/spool/postfix/maildrop
+Sep 18 15:15:21 www postfix/postfix-script[641]: starting the Postfix mail system
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 18 15:15:21 www postfix/master[642]: daemon started -- version 3.5.18, configuration /etc/postfix
+Sep 18 15:15:21 www amavis[559]: starting. /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 18 15:15:21 www amavis[559]: perl=5.032001, user=, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 18 15:15:21 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 18 15:15:21 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 18 15:15:21 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 18 15:15:21 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 18 15:15:21 www amavis[559]: No decoder for       .F   
+Sep 18 15:15:21 www amavis[559]: No decoder for       .doc 
+Sep 18 15:15:21 www amavis[559]: No decoder for       .zoo 
+Sep 18 15:18:10 www postfix/pickup[649]: 6C176188EBF: uid=0 from=<amavis>
+Sep 18 15:18:10 www postfix/cleanup[924]: 6C176188EBF: message-id=<20230918151810.6C176188EBF@www.baladiya.com>
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: localhost [127.0.0.1] not internal
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: not authenticated
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: localhost [127.0.0.1] not internal
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: not authenticated
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: localhost [127.0.0.1] not internal
+Sep 18 15:18:10 www opendkim[456]: 6C176188EBF: not authenticated
+Sep 18 15:18:10 www postfix/qmgr[650]: 6C176188EBF: from=<amavis@www.baladiya.com>, size=734, nrcpt=1 (queue active)
+Sep 18 15:18:10 www postfix/error[927]: 6C176188EBF: to=<amavis@www.baladiya.com>, orig_to=<amavis>, relay=none, delay=0.28, delays=0.14/0.05/0/0.1, dsn=4.7.0, status=deferred (message is administratively expired)
+Sep 18 15:18:10 www postfix/qmgr[650]: 6C176188EBF: from=<amavis@www.baladiya.com>, status=force-expired, returned to sender
+Sep 18 15:18:10 www postfix/cleanup[924]: AB94C189525: message-id=<20230918151810.AB94C189525@www.baladiya.com>
+Sep 18 15:18:10 www postfix/bounce[928]: 6C176188EBF: sender non-delivery notification: AB94C189525
+Sep 18 15:18:10 www postfix/qmgr[650]: AB94C189525: from=<>, size=2690, nrcpt=1 (queue active)
+Sep 18 15:18:10 www postfix/qmgr[650]: 6C176188EBF: removed
+Sep 18 15:18:10 www postfix/error[927]: AB94C189525: to=<amavis@www.baladiya.com>, relay=none, delay=0.05, delays=0.03/0/0/0.02, dsn=4.7.0, status=deferred (message is administratively expired)
+Sep 18 15:18:10 www postfix/qmgr[650]: AB94C189525: from=<>, status=force-expired, returned to sender
+Sep 18 15:18:10 www postfix/qmgr[650]: AB94C189525: removed
+Sep 24 20:20:01 www dovecot: master: Dovecot v2.3.20 (80a5ac675d) starting up for imap, lmtp (core dumps disabled)
+Sep 24 20:20:02 www opendkim[463]: OpenDKIM Filter v2.11.0 starting (args: -f)
+Sep 24 20:20:02 www opendmarc[469]: OpenDMARC Filter v1.4.0 starting (args: -f -p inet:8893@localhost -P /var/run/opendmarc/opendmarc.pid)
+Sep 24 20:20:02 www opendmarc[469]: additional trusted authentication services: www.baladiya.com
+Sep 24 20:20:02 www postfix/postfix-script[552]: warning: group or other writable: /var/spool/postfix/.
+Sep 24 20:20:02 www postfix/postfix-script[553]: warning: group or other writable: /var/spool/postfix/pid
+Sep 24 20:20:02 www postfix/postfix-script[573]: warning: not owned by postfix: /var/lib/postfix/.
+Sep 24 20:20:02 www postfix/postfix-script[574]: warning: not owned by postfix: /var/lib/postfix/./master.lock
+Sep 24 20:20:03 www amavis[559]: starting. /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:20:03 www amavis[559]: perl=5.032001, user=, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:20:03 www postfix/postfix-script[611]: warning: group or other writable: /var/lib/postfix/.
+Sep 24 20:20:03 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:20:03 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:20:03 www postfix/postfix-script[620]: warning: group or other writable: /var/lib/postfix/./master.lock
+Sep 24 20:20:03 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:20:03 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:20:03 www amavis[559]: No decoder for       .F   
+Sep 24 20:20:03 www amavis[559]: No decoder for       .doc 
+Sep 24 20:20:03 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:20:03 www postfix/postfix-script[628]: warning: not owned by postfix: /var/spool/postfix/active
+Sep 24 20:20:04 www postfix/postfix-script[630]: warning: not owned by postfix: /var/spool/postfix/bounce
+Sep 24 20:20:04 www postfix/postfix-script[631]: warning: not owned by postfix: /var/spool/postfix/corrupt
+Sep 24 20:20:04 www postfix/postfix-script[632]: warning: not owned by postfix: /var/spool/postfix/defer
+Sep 24 20:20:04 www postfix/postfix-script[633]: warning: not owned by postfix: /var/spool/postfix/defer/6
+Sep 24 20:20:04 www postfix/postfix-script[634]: warning: not owned by postfix: /var/spool/postfix/defer/A
+Sep 24 20:20:04 www postfix/postfix-script[635]: warning: not owned by postfix: /var/spool/postfix/deferred
+Sep 24 20:20:04 www postfix/postfix-script[637]: warning: not owned by postfix: /var/spool/postfix/flush
+Sep 24 20:20:04 www postfix/postfix-script[639]: warning: not owned by postfix: /var/spool/postfix/hold
+Sep 24 20:20:04 www postfix/postfix-script[641]: warning: not owned by postfix: /var/spool/postfix/incoming
+Sep 24 20:20:04 www postfix/postfix-script[642]: warning: not owned by postfix: /var/spool/postfix/private
+Sep 24 20:20:04 www postfix/postfix-script[644]: warning: not owned by postfix: /var/spool/postfix/public
+Sep 24 20:20:04 www postfix/postfix-script[646]: warning: not owned by postfix: /var/spool/postfix/saved
+Sep 24 20:20:04 www postfix/postfix-script[650]: warning: not owned by postfix: /var/spool/postfix/trace
+Sep 24 20:20:04 www postfix/postfix-script[653]: warning: not owned by postfix: /var/spool/postfix/maildrop
+Sep 24 20:20:04 www postfix/postfix-script[659]: warning: not owned by group postdrop: /var/spool/postfix/public
+Sep 24 20:20:04 www postfix/postfix-script[660]: warning: not owned by group postdrop: /var/spool/postfix/maildrop
+Sep 24 20:20:04 www postfix/postfix-script[664]: starting the Postfix mail system
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:20:04 www postfix/master[665]: daemon started -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:22:28 www amavis[559]: (!)Net::Server: 2023/09/24-20:22:28 Re-exec server during HUP
+Sep 24 20:22:28 www postfix/postfix-script[972]: refreshing the Postfix mail system
+Sep 24 20:22:28 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:28 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:22:29 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:22:29 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:22:29 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:22:29 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:22:29 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:22:29 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:22:29 www amavis[559]: No decoder for       .F   
+Sep 24 20:22:29 www amavis[559]: No decoder for       .doc 
+Sep 24 20:22:29 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:22:49 www amavis[559]: (!)Net::Server: 2023/09/24-20:22:49 Re-exec server during HUP
+Sep 24 20:22:49 www postfix/postfix-script[1103]: refreshing the Postfix mail system
+Sep 24 20:22:49 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:22:49 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:22:49 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:22:49 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:22:49 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:22:49 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:22:49 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:22:50 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:22:50 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:22:50 www amavis[559]: No decoder for       .F   
+Sep 24 20:22:50 www amavis[559]: No decoder for       .doc 
+Sep 24 20:22:50 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:29:25 www amavis[559]: (!)Net::Server: 2023/09/24-20:29:25 Re-exec server during HUP
+Sep 24 20:29:26 www postfix/postfix-script[1776]: refreshing the Postfix mail system
+Sep 24 20:29:26 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:29:26 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:29:26 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:29:26 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:29:26 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:29:26 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:29:26 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:29:26 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:29:26 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:29:26 www amavis[559]: No decoder for       .F   
+Sep 24 20:29:26 www amavis[559]: No decoder for       .doc 
+Sep 24 20:29:26 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:30:27 www amavis[559]: (!)Net::Server: 2023/09/24-20:30:27 Re-exec server during HUP
+Sep 24 20:30:28 www postfix/postfix-script[1969]: refreshing the Postfix mail system
+Sep 24 20:30:28 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:30:28 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:30:28 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:30:28 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:30:28 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:30:28 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:30:28 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:30:28 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:30:28 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:30:28 www amavis[559]: No decoder for       .F   
+Sep 24 20:30:28 www amavis[559]: No decoder for       .doc 
+Sep 24 20:30:28 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:40:39 www amavis[559]: (!)Net::Server: 2023/09/24-20:40:39 Re-exec server during HUP
+Sep 24 20:40:39 www postfix/postfix-script[2963]: refreshing the Postfix mail system
+Sep 24 20:40:39 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:40:39 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:40:39 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:40:40 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:40:40 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:40:40 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:40:40 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:40:40 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:40:40 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:40:40 www amavis[559]: No decoder for       .F   
+Sep 24 20:40:40 www amavis[559]: No decoder for       .doc 
+Sep 24 20:40:40 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:42:01 www amavis[559]: (!)Net::Server: 2023/09/24-20:42:01 Re-exec server during HUP
+Sep 24 20:42:01 www postfix/postfix-script[3186]: refreshing the Postfix mail system
+Sep 24 20:42:01 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:42:01 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:42:01 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:42:01 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:42:01 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:42:01 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:42:01 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:42:01 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:42:01 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:42:01 www amavis[559]: No decoder for       .F   
+Sep 24 20:42:01 www amavis[559]: No decoder for       .doc 
+Sep 24 20:42:01 www amavis[559]: No decoder for       .zoo 
+Sep 24 20:46:42 www amavis[559]: (!)Net::Server: 2023/09/24-20:46:42 Re-exec server during HUP
+Sep 24 20:46:43 www postfix/postfix-script[3691]: refreshing the Postfix mail system
+Sep 24 20:46:43 www postfix/master[665]: reload -- version 3.5.18, configuration /etc/postfix
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "policyd-spf" (private/policyd-spf) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "smtp-amavis" (private/smtp-amavis) -- using the last entry
+Sep 24 20:46:43 www postfix/master[665]: warning: duplicate master.cf entry for service "127.0.0.1:10025" ([127.0.0.1]:10025) -- using the last entry
+Sep 24 20:46:43 www dovecot: master: Warning: SIGHUP received - reloading configuration
+Sep 24 20:46:43 www amavis[559]: starting. (warm) /usr/sbin/amavisd-new at www.baladiya.com amavisd-new-2.11.1 (20181009), Unicode aware, LC_CTYPE="C.UTF-8"
+Sep 24 20:46:43 www amavis[559]: perl=5.032001, user=109, EUID: 109 (109);  group=, EGID: 111 111 (111 111)
+Sep 24 20:46:43 www amavis[559]: Net::Server: Group Not Defined.  Defaulting to EGID '111 111'
+Sep 24 20:46:43 www amavis[559]: Net::Server: User Not Defined.  Defaulting to EUID '109'
+Sep 24 20:46:43 www amavis[559]: No ext program for   .zoo, tried: zoo
+Sep 24 20:46:43 www amavis[559]: No ext program for   .doc, tried: ripole
+Sep 24 20:46:43 www amavis[559]: No decoder for       .F   
+Sep 24 20:46:43 www amavis[559]: No decoder for       .doc 
+Sep 24 20:46:43 www amavis[559]: No decoder for       .zoo 
