@@ -3,7 +3,7 @@ import { execa, execaCommand } from "execa";
 import * as fs from "fs";
 
 export class MailService {
-  static mailService=new MailService();
+  static mailService = new MailService();
   add = async (data: { email: string; password: string }): Promise<boolean> => {
     const command = `doveadm pw -s SHA512-CRYPT -u ${data.email} -p ${data.password}`;
     try {
@@ -73,11 +73,9 @@ export class MailService {
     const saltRounds = 12; // You can adjust this value for the desired level of security
     const salt = await genSalt(saltRounds);
     const hashedPassword = await hash(password, salt);
-    return `$6$${salt}$${hashedPassword}`;
+    return hashedPassword;
   };
 }
 
-
-
-const mailService=new MailService();
-export {mailService}
+const mailService = new MailService();
+export { mailService };
