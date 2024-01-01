@@ -1,19 +1,15 @@
 import Http from "http";
 import dotenv from "dotenv";
-import Connect from "connect-pg-simple";
-import session from "express-session";
 import cookieParser from "cookie-parser";
 import { PrismaClient, Role } from "@prisma/client";
 import AdminJSExpress from "@adminjs/express";
-import { argon2d,  } from "argon2";
 import { ExpressApp } from "./app.js";
-import { mailService } from "./service/mail.service.js";
 import { userResource } from "./model/user/user_adminjs.js";
 import { Database, Resource, getModelByName } from "@adminjs/prisma";
 import AdminJS from "adminjs";
 import { Sql } from "@prisma/client/runtime/library.js";
 import { compareSync, hash, hashSync } from "bcrypt";
-import { customBeforeAddEmail, customBeforeDeleteEmail } from "./model/email_adminjs.js";
+import { customBeforeAddEmail, customBeforeDeleteEmail, customBeforeEdit } from "./model/email_adminjs.js";
 // import { buildRouter } from "adminjs/express/lib/buildRouter.js";
 export class Server {
   expressApp = new ExpressApp();
@@ -67,6 +63,9 @@ export class Server {
               },
               delete:{
                 before:[customBeforeDeleteEmail]
+              },
+              edit:{
+                before:[customBeforeEdit]
               }
             },
           },

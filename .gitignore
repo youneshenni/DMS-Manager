@@ -1,7 +1,8 @@
 node_modules
+dist
 # Keep environment variables out of version control
 .env
 yarn.lock
 package-lock.json
-dist
+
 .adminjs

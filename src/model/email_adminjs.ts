@@ -41,4 +41,26 @@ const customBeforeDeleteEmail = async (request, context) => {
   }
   return request;
 };
-export { customBeforeAddEmail, customBeforeDeleteEmail };
+const  customBeforeEdit =   async (request, context) => {
+  const { payload = {}, method } = request;
+  console.log(payload, method);
+
+  if (method === "get") return request;
+  const { email = null, password = null } = payload as {
+    email?: string;
+    password?: string;
+  };
+
+  if (!email || !password) {
+    throw new Error("no email or password");
+  }
+  var isAdd = await mailService.edit({ email, newPassword:password });
+  if (!isAdd) {
+    throw new Error("Failed Add");
+  }
+  return request;
+};
+
+
+
+export { customBeforeAddEmail, customBeforeDeleteEmail,customBeforeEdit };

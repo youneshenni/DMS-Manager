@@ -1,5 +1,4 @@
 import { genSalt, hash } from "bcrypt";
-import { execa, execaCommand } from "execa";
 import * as fs from "fs";
 
 export class MailService {
@@ -7,7 +6,6 @@ export class MailService {
   add = async (data: { email: string; password: string }): Promise<boolean> => {
     const command = `doveadm pw -s SHA512-CRYPT -u ${data.email} -p ${data.password}`;
     try {
-      // Const { stdout } = await execaCommand(command);
       const hashPassword = await this.generateDovecotPassword(data.password);
       // Console.log(stdout);
       const filePath = "docker-data/dms/config/postfix-accounts.cf";
@@ -20,6 +18,37 @@ export class MailService {
     } catch (error) {
       console.log(error);
 
+      return false;
+    }
+  };
+  edit = async (data: {
+    email: string;
+    newPassword: string;
+  }): Promise<boolean> => {
+    
+    try {
+      const filePath = "docker-data/dms/config/postfix-accounts.cf";
+
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+
+      const lines = fileContent.split("\n");
+
+      const updatedLines = lines.map(async (line) => {
+        if (line.includes("|")) {
+          const [email, password] = line.split("|");
+          if (email.trim() === data.email) {
+            const hashPassword = await this.generateDovecotPassword(data.newPassword);
+            return `${email.trim()}|{SHA512-CRYPT}${hashPassword}`;
+          }
+        }
+        return line;
+      });
+
+      const updatedContent = updatedLines.join("\n");
+      fs.writeFileSync(filePath, updatedContent, "utf-8");
+
+      return true;
+    } catch (error) {
       return false;
     }
   };
