@@ -9,14 +9,10 @@ import { Database, Resource, getModelByName } from "@adminjs/prisma";
 import AdminJS, { AdminJSOptions } from "adminjs";
 import { Sql } from "@prisma/client/runtime/library.js";
 import { compareSync, hash, hashSync } from "bcrypt";
-import {
-  customBeforeAddEmail,
-  customBeforeDeleteEmail,
-  customBeforeEdit,
-  emailResource,
-} from "./model/email_adminjs.js";
+import { emailResource } from "./model/email_adminjs.js";
 import { userHasDomainResource } from "./model/user/user_has_domain.js";
 import { domainResource } from "./model/domain.js";
+import { componentLoader } from "./components/index.js";
 // import { buildRouter } from "adminjs/express/lib/buildRouter.js";
 export class Server {
   expressApp = new ExpressApp();
@@ -44,6 +40,7 @@ export class Server {
     const adminOptions: AdminJSOptions = {
       rootPath: "/",
       loginPath: "/login",
+      componentLoader: componentLoader,
       logoutPath: "/logout",
       // We pass Publisher to `resources`
       resources: [
@@ -60,7 +57,7 @@ export class Server {
     this.admin = new AdminJS(adminOptions);
     if (process.env.NODE_ENV === "production") await this.admin.initialize();
     else this.admin.watch();
-
+    
     AdminJSExpress;
     // const adminRouter = AdminJSExpress.buildRouter(this.admin);
     const adminRouter = AdminJSExpress.buildAuthenticatedRouter(
@@ -69,14 +66,14 @@ export class Server {
         authenticate: this.authenticate,
         cookieName: "adminjs",
 
-        cookiePassword: "sessionsecret",
+        cookiePassword: process.env.sessionsecret ?? "sessionsecret",
       },
       null,
       {
         resave: true,
         saveUninitialized: true,
 
-        secret: "sessionsecret",
+        secret: process.env.sessionsecret ?? "sessionsecret",
         cookie: {
           httpOnly: process.env.NODE_ENV === "production",
           secure: process.env.NODE_ENV === "production",
@@ -86,7 +83,10 @@ export class Server {
     );
     this.expressApp.app.use("/", adminRouter);
     this.expressApp.app.use(cookieParser());
-
+      this.expressApp.app.get("/api/user", async (req, res) => {
+        console.log((req.session  as any).adminUser);
+        return res.json((req.session  as any).adminUser);
+      })
     return true;
   };
   authenticate = async (email: string, password: string) => {
@@ -107,13 +107,6 @@ export class Server {
       return null;
     }
 
-    if (
-      email === this.DEFAULT_ADMIN.email &&
-      password === this.DEFAULT_ADMIN.password
-    ) {
-      return Promise.resolve(this.DEFAULT_ADMIN);
-    }
-    return null;
   };
   serverListen = (): Http.Server => {
     dotenv.config({
@@ -129,9 +122,5 @@ export class Server {
       console.log(`Server is running on: http://${host}:${port}`);
     });
   };
-  customAfter = (originalResponse, request, context) => {
-    console.log(originalResponse.meta);
-
-    return originalResponse;
-  };
+ 
 }
