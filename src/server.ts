@@ -6,10 +6,17 @@ import AdminJSExpress from "@adminjs/express";
 import { ExpressApp } from "./app.js";
 import { userResource } from "./model/user/user_adminjs.js";
 import { Database, Resource, getModelByName } from "@adminjs/prisma";
-import AdminJS from "adminjs";
+import AdminJS, { AdminJSOptions } from "adminjs";
 import { Sql } from "@prisma/client/runtime/library.js";
 import { compareSync, hash, hashSync } from "bcrypt";
-import { customBeforeAddEmail, customBeforeDeleteEmail, customBeforeEdit } from "./model/email_adminjs.js";
+import {
+  customBeforeAddEmail,
+  customBeforeDeleteEmail,
+  customBeforeEdit,
+  emailResource,
+} from "./model/email_adminjs.js";
+import { userHasDomainResource } from "./model/user/user_has_domain.js";
+import { domainResource } from "./model/domain.js";
 // import { buildRouter } from "adminjs/express/lib/buildRouter.js";
 export class Server {
   expressApp = new ExpressApp();
@@ -29,47 +36,21 @@ export class Server {
   runServer = async (): Promise<void | Http.Server> => {
     return this.adminjsConnection().then(this.serverListen);
   };
-  
-
-
-  
 
   //TODO: add db connection
   adminjsConnection = async (): Promise<boolean> => {
     var l = await this.prisma.user.count();
 
-    const adminOptions = {
+    const adminOptions: AdminJSOptions = {
+      rootPath: "/",
+      loginPath: "/login",
+      logoutPath: "/logout",
       // We pass Publisher to `resources`
       resources: [
         userResource,
-        {
-          resource: {
-            model: getModelByName("Domain"),
-            client: this.prisma,
-          },
-
-          options: {},
-        },
-        {
-          resource: {
-            model: getModelByName("Email"),
-            client: this.prisma,
-          },
-
-          options: {
-            actions: {
-              new: {
-                before: [customBeforeAddEmail],
-              },
-              delete:{
-                before:[customBeforeDeleteEmail]
-              },
-              edit:{
-                before:[customBeforeEdit]
-              }
-            },
-          },
-        },
+        domainResource,
+        userHasDomainResource,
+        emailResource,
       ],
     };
     AdminJS.registerAdapter({
@@ -103,7 +84,7 @@ export class Server {
         name: "adminjs",
       }
     );
-    this.expressApp.app.use(this.admin.options.rootPath, adminRouter);
+    this.expressApp.app.use("/", adminRouter);
     this.expressApp.app.use(cookieParser());
 
     return true;
@@ -111,18 +92,18 @@ export class Server {
   authenticate = async (email: string, password: string) => {
     try {
       var user = await this.prisma.user.findFirstOrThrow({ where: { email } });
-      
+
       console.log(user);
-      
-      console.log(hashSync(password,10));
-      if(!compareSync(password,user.password)){
+
+      console.log(hashSync(password, 10));
+      if (!compareSync(password, user.password)) {
         return null;
       }
-      
+
       return user;
     } catch (error) {
       console.log(error);
-      
+
       return null;
     }
 

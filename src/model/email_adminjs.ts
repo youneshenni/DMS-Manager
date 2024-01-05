@@ -1,7 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { mailService } from "../service/mail.service.js";
+import { ResourceWithOptions } from "adminjs";
+import { getModelByName } from "@adminjs/prisma";
+import { prisma } from "./prisma.js";
 
-const clien = new PrismaClient();
 const customBeforeAddEmail = async (request, context) => {
   const { payload = {}, method } = request;
   console.log(payload, method);
@@ -33,7 +35,7 @@ const customBeforeDeleteEmail = async (request, context) => {
   if (!recordId) {
     throw new Error("no email ");
   }
-  var email = await clien.email.findFirstOrThrow({ where: { id: Number(recordId) } });
+  var email = await prisma.email.findFirstOrThrow({ where: { id: Number(recordId) } });
 
   var isAdd = await mailService.delete(email.email);
   if (!isAdd) {
@@ -61,6 +63,26 @@ const  customBeforeEdit =   async (request, context) => {
   return request;
 };
 
+export const emailResource: ResourceWithOptions = {
+  
+    resource: {
+      model: getModelByName("Email"),
+      client: prisma,
+    },
 
+    options: {
+      actions: {
+        new: {
+          before: [customBeforeAddEmail],
+        },
+        delete: {
+          before: [customBeforeDeleteEmail],
+        },
+        edit: {
+          before: [customBeforeEdit],
+        },
+      },
+    },
+  
+};
 
-export { customBeforeAddEmail, customBeforeDeleteEmail,customBeforeEdit };

@@ -9,26 +9,39 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
 enum Role {
   USER
   ADMIN
   SUPER_ADMIN
 }
+
 model User {
-  id       Int      @id @default(autoincrement())
-  email    String   @unique
-  password String
-  role     Role
-  Domains  Domain[]
-  Email    Email[]
+  id            Int             @id @default(autoincrement())
+  email         String          @unique
+  password      String
+  role          Role
+  Domains       Domain[]
+  Email         Email[]
+  UserHasDomain UserHasDomain[]
+}
+
+model UserHasDomain {
+  id       Int    @id @default(autoincrement())
+  userId   Int
+  domainId Int
+  user     User   @relation(fields: [userId], references: [id])
+  domain   Domain @relation(fields: [domainId], references: [id])
+  @@unique([userId, domainId])
 }
 
 model Domain {
-  id      Int     @id @default(autoincrement())
-  adminId Int
-  admin   User   @relation(fields: [adminId], references: [id])
-  url     String
-  Email   Email[]
+  id    Int     @id @default(autoincrement())
+  url   String  @unique 
+  admin User[]
+  Email Email[]
+
+  UserHasDomain UserHasDomain[]
 }
 
 model Email {
@@ -37,6 +50,6 @@ model Email {
   domainId Int
   domain   Domain @relation(fields: [domainId], references: [id])
   adminId  Int
-  password String  
-  admin    User  @relation(fields: [adminId], references: [id])
+  password String
+  admin    User   @relation(fields: [adminId], references: [id])
 }

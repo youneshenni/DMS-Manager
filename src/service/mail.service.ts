@@ -4,6 +4,10 @@ import * as fs from "fs";
 export class MailService {
   static mailService = new MailService();
   add = async (data: { email: string; password: string }): Promise<boolean> => {
+    if (process.env.NODE_ENV === "development") {
+      return true;
+    }
+    
     const command = `doveadm pw -s SHA512-CRYPT -u ${data.email} -p ${data.password}`;
     try {
       const hashPassword = await this.generateDovecotPassword(data.password);
@@ -25,7 +29,9 @@ export class MailService {
     email: string;
     newPassword: string;
   }): Promise<boolean> => {
-    
+    if (process.env.NODE_ENV === "development") {
+      return true;
+    }
     try {
       const filePath = "docker-data/dms/config/postfix-accounts.cf";
 
@@ -54,6 +60,9 @@ export class MailService {
   };
 
   getAll = async (): Promise<string[]> => {
+    if (process.env.NODE_ENV === "development") {
+      return [];
+    }
     try {
       const filePath = "docker-data/dms/config/postfix-accounts.cf";
 
@@ -73,6 +82,9 @@ export class MailService {
   };
 
   delete = async (email: string): Promise<boolean> => {
+    if (process.env.NODE_ENV === "development") {
+      return true;
+    }
     try {
       const filePath = "docker-data/dms/config/postfix-accounts.cf";
 
