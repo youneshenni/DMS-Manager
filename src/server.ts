@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { PrismaClient, Role } from "@prisma/client";
 import AdminJSExpress from "@adminjs/express";
+import ApiRouter from "./api/router.js";
 import { ExpressApp } from "./app.js";
 import { userResource } from "./model/user/user_adminjs.js";
 import { Database, Resource, getModelByName } from "@adminjs/prisma";
@@ -57,7 +58,7 @@ export class Server {
     this.admin = new AdminJS(adminOptions);
     if (process.env.NODE_ENV === "production") await this.admin.initialize();
     else this.admin.watch();
-    
+
     AdminJSExpress;
     // const adminRouter = AdminJSExpress.buildRouter(this.admin);
     const adminRouter = AdminJSExpress.buildAuthenticatedRouter(
@@ -82,11 +83,9 @@ export class Server {
       }
     );
     this.expressApp.app.use("/", adminRouter);
+    this.expressApp.app.use("/api2", ApiRouter);
     this.expressApp.app.use(cookieParser());
-      this.expressApp.app.get("/api/user", async (req, res) => {
-        console.log((req.session  as any).adminUser);
-        return res.json((req.session  as any).adminUser);
-      })
+
     return true;
   };
   authenticate = async (email: string, password: string) => {
@@ -106,7 +105,6 @@ export class Server {
 
       return null;
     }
-
   };
   serverListen = (): Http.Server => {
     dotenv.config({
@@ -122,5 +120,4 @@ export class Server {
       console.log(`Server is running on: http://${host}:${port}`);
     });
   };
- 
 }

@@ -43,8 +43,18 @@ const EditReference = (props) => {
     console.log(inputValue);
     console.log(resourceId);
     let optionRecords: RecordJSON[];
-    if (record?.params?.[`${resourceId}Data`]) {
-      optionRecords = record?.params?.[`${resourceId}Data`];
+    if (property.props?.fetchUrl) {
+      const data = await fetch(property.props?.fetchUrl).then
+        (res =>  res.json())
+        .catch((err) => {
+          console.log(err);
+          record.errors[property.path] = {
+            message: "Error fetching data",
+          }
+          return [];
+        });
+      optionRecords = data;
+
     } else {
       optionRecords = await api.searchRecords({
         resourceId,

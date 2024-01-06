@@ -1,7 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import { mailService } from "../service/mail.service.js";
-import { ActionRequest, RecordJSON, ResourceWithOptions } from "adminjs";
-import { getModelByName } from "@adminjs/prisma";
+import {
+  ActionQueryParameters,
+  ActionRequest,
+  BaseRecord,
+  Filter,
+  RecordJSON,
+  ResourceWithOptions,
+  SortSetter,
+  flat,
+  populator,
+} from "adminjs";
+import { convertFilter, getModelByName } from "@adminjs/prisma";
 import { prisma } from "./prisma.js";
 
 const customBeforeAddEmail = async (request, context) => {
@@ -21,6 +31,21 @@ const customBeforeAddEmail = async (request, context) => {
 
   if (!email || !password) {
     throw new Error("no email or password");
+  }
+
+  const oldEmail = await prisma.email.findFirst({
+    where: { email },
+  });
+  if (oldEmail) {
+  }
+
+  const domain = await prisma.domain.findFirst({
+    where: { id: Number(payload.domain) },
+  });
+  console.log(domain);
+
+  if (email.split("@")[1] !== domain.url) {
+    throw new Error("not your domain");
   }
   var isAdd = await mailService.add({ email, password });
   if (!isAdd) {
@@ -132,17 +157,13 @@ export const emailResource: ResourceWithOptions = {
     properties: {
       adminId: {
         isVisible: false,
-        custom:{
-          value: (context) => context?.currentAdmin?.id,
-        }
+      },
+      domain: {
+        props: {
+          fetchUrl: `${process.env.API_URL}/domain/me`,
+        },
       },
       admin: {
-        custom: (context) => ({
-          value: context?.currentAdmin?.id,
-        }),
-        props: (context) => ({
-          value: context?.currentAdmin?.id,
-        }),
         isVisible: {
           show: true,
           edit: false,
@@ -153,21 +174,103 @@ export const emailResource: ResourceWithOptions = {
     },
     actions: {
       new: {
-
-        // before: [customBeforeAddEmail],
-        // after: [customAfterEdit],
-
-        handler: async (request, response, context) => {
-          console.log("new");
-          return {
-            record: {
-              params: {},
-            },
-          };
-        }
+        before: [customBeforeAddEmail],
       },
       delete: {
         before: [customBeforeDeleteEmail],
+      },
+      list: {
+        handler: async (request, response, context) => {
+          //filter
+          if (request.method !== "get") {
+            return response;
+          }
+          const userId = context?.currentAdmin?.id;
+          if (!userId) {
+            throw new Error("no user");
+          }
+          const listDomain = await prisma.userHasDomain.findMany({
+            where: { userId: Number(userId) },
+          });
+          const domainIds = listDomain.map((domain) => domain.domainId);
+
+          const PER_PAGE_LIMIT = 500;
+          const { query } = request;
+          const {
+            sortBy,
+            direction,
+            filters = {},
+          } = flat.unflatten(query || {}) as ActionQueryParameters;
+          const { resource, _admin } = context;
+          let { page, perPage } = flat.unflatten(
+            query || {}
+          ) as ActionQueryParameters;
+
+          if (perPage) {
+            perPage = +perPage > PER_PAGE_LIMIT ? PER_PAGE_LIMIT : +perPage;
+          } else {
+            perPage = _admin.options.settings?.defaultPerPage ?? 10;
+          }
+          page = Number(page) || 1;
+
+          const listProperties = resource.decorate().getListProperties();
+          const firstProperty = listProperties.find((p) => p.isSortable());
+          let sort;
+          if (firstProperty) {
+            sort = SortSetter(
+              { sortBy, direction },
+              firstProperty.name(),
+              resource.decorate().options
+            );
+          }
+
+          const filter = await new Filter(filters, resource).populate(context);
+          let records;
+          var total = 0;
+
+          records = await prisma.email
+            .findMany({
+              where: {
+                ...convertFilter(getModelByName("Email"), filter),
+                domainId: {
+                  in: domainIds,
+                },
+              },
+              include: { domain: true, admin: true },
+              take: perPage,
+              skip: (page - 1) * perPage,
+            })
+            .then((v) => v.map((data) => new BaseRecord(data, resource)));
+          total = await prisma.email.count({
+            where: {
+              ...convertFilter(getModelByName("Email"), filter),
+              domainId: {
+                in: domainIds,
+              },
+            },
+          });
+
+          const { currentAdmin } = context;
+
+          const populatedRecords = await populator(records, context);
+
+          // eslint-disable-next-line no-param-reassign
+          context.records = populatedRecords;
+
+
+
+
+          return {
+            meta: {
+              total,
+              perPage,
+              page,
+              direction: sort?.direction,
+              sortBy: sort?.sortBy,
+            },
+            records: populatedRecords.map((r) => r.toJSON(currentAdmin)),
+          };
+        },
       },
       edit: {
         before: [customBeforeEdit],
