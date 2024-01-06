@@ -39,16 +39,19 @@ export class MailService {
 
       const lines = fileContent.split("\n");
 
-      const updatedLines = lines.map(async (line) => {
-        if (line.includes("|")) {
-          const [email, password] = line.split("|");
-          if (email.trim() === data.email) {
-            const hashPassword = await this.generateDovecotPassword(data.newPassword);
-            return `${email.trim()}|{SHA512-CRYPT}${hashPassword}`;
+      const updatedLines =await Promise.all(
+        lines.map(async (line) => {
+          if (line.includes("|")) {
+            const [email, password] = line.split("|");
+            if (email.trim() === data.email) {
+              const hashPassword = await this.generateDovecotPassword(data.newPassword);
+              return `${email.trim()}|{SHA512-CRYPT}${hashPassword}`;
+            }
           }
-        }
-        return line;
-      });
+          return line;
+        })
+      );
+
 
       const updatedContent = updatedLines.join("\n");
       fs.writeFileSync(filePath, updatedContent, "utf-8");
