@@ -30,6 +30,25 @@ const userResource: ResourceWithOptions = {
 
           return request;
         },
+        after: async (response: RecordActionResponse, req: ActionRequest) => {
+          if (req.method === "post" && response.record.params.id) {
+            const list = Object.keys(req.payload)
+              .filter((key) => key.startsWith("UserHasDomain."))
+              .map((key) => req.payload[key]);
+            const userId = response.record.params.id;
+            
+            await prisma.userHasDomain.createMany({
+              data: list.map((domainId) => ({
+                userId: Number(userId),
+                domainId: Number(domainId),
+              })),
+              skipDuplicates: true,
+            });
+            console.log(list);
+          }
+
+          return response;
+        }
       },
       show: {
         isVisible: ({ currentAdmin }) => currentAdmin.role === Role.SUPER_ADMIN,

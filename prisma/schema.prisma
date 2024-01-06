@@ -30,8 +30,8 @@ model UserHasDomain {
   id       Int    @id @default(autoincrement())
   userId   Int
   domainId Int
-  user     User   @relation(fields: [userId], references: [id])
-  domain   Domain @relation(fields: [domainId], references: [id])
+  user     User   @relation(fields: [userId], references: [id],onDelete: Cascade, onUpdate: Cascade )
+  domain   Domain @relation(fields: [domainId], references: [id],onDelete: Cascade, onUpdate: Cascade)
   @@unique([userId, domainId])
 }
 
@@ -48,8 +48,8 @@ model Email {
   id       Int    @id @unique @default(autoincrement())
   email    String @unique
   domainId Int
-  domain   Domain @relation(fields: [domainId], references: [id])
+  domain   Domain @relation(fields: [domainId], references: [id],onDelete: Cascade, onUpdate: Cascade)
   adminId  Int
   password String
-  admin    User   @relation(fields: [adminId], references: [id])
+  admin    User   @relation(fields: [adminId], references: [id],onDelete: Cascade, onUpdate: Cascade)
 }
