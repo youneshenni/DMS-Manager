@@ -5,6 +5,7 @@
     "@adminjs/passwords": "^4.0.0",
     "@adminjs/prisma": "^5.0.1",
     "@prisma/client": "5.3.1",
+    "@tiptap/extension-text-style": "^2.8.0",
     "@types/node": "^20.6.2",
     "adminjs": "^7.2.1",
     "argon2": "^0.31.1",
@@ -22,14 +23,14 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/connect-pg-simple": "^7.0.1",
     "@types/cookie-parser": "^1.4.4",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
-    "@types/bcrypt": "^5.0.0",
+    "@types/express-session": "^1.17.7",
     "bcrypt": "^5.1.1",
     "execa": "npm:@esm2cjs/execa",
-    "@types/express-session": "^1.17.7",
     "rimraf": "^4.4.1",
     "ts-node": "^10.9.1"
   },
